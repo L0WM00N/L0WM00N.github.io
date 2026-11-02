@@ -38,12 +38,12 @@ window.CrazySDK=window.CrazySDK||{init:function(o){window.Crazygames.init(o)},re
  const fill=document.getElementById('fill');
  const status=document.getElementById('status');
  const error=document.getElementById('error');
- const build='Build/';
+ const build='https://l0wm00n.github.io/Unmatched-Ego-2/Unmatched-Ego-2-CodeHS/Build/';
  const config={
   dataUrl:build+'8e5a9367877d6919bd40173a76a5bb10.data.br',
   frameworkUrl:build+'55974dc5d2ef6b7ea464eed33e1bd0d2.framework.js.br',
   codeUrl:build+'de7a79da0ff34d64d663e0b211d93907.wasm.br',
-  streamingAssetsUrl:'StreamingAssets',
+  streamingAssetsUrl:'https://l0wm00n.github.io/Unmatched-Ego-2/Unmatched-Ego-2-CodeHS/StreamingAssets',
   companyName:'',productName:'Unmatched Ego 2',productVersion:'63',
   showBanner:function(message,type){if(type==='error')fail(message);else status.textContent=message;},
   matchWebGLToCanvasSize:true
@@ -51,7 +51,7 @@ window.CrazySDK=window.CrazySDK||{init:function(o){window.Crazygames.init(o)},re
  function fail(e){loading.style.display='block';status.textContent='The game could not start.';error.style.display='block';error.textContent=(e&&e.message)||String(e);}
  const script=document.createElement('script');
  script.src=build+'976220bf21c7964a357cbc738e0ed4b7.loader.js';
- script.onerror=()=>fail('Could not load the Unity loader. Check that the Build folder was uploaded with the correct filenames.');
+ script.onerror=()=>fail('Could not load the Unity loader from GitHub Pages. Check that Pages is published and that the Build folder and loader filename are present at: '+build);
  script.onload=()=>{
   if(typeof createUnityInstance!=='function')return fail('Unity loader did not initialize.');
   createUnityInstance(canvas,config,p=>{fill.style.width=(100*p)+'%';status.textContent='Loading game… '+Math.round(p*100)+'%';})
